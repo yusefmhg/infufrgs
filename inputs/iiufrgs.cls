@@ -571,7 +571,7 @@
 \def\@makechapterhead#1#2{%
         %\vspace*{90pt}
         %\vspace{12pt}
-        \reset@font{#2{\ii@chapterfont\textbf{\@chapapp\thechapter\hphantom{~}\@chapappextra\MakeUppercase{#1}}\par}}
+        \reset@font{#2{\ii@chapterfont\textbf{\@chapapp\thechapter\hphantom{~}\@chapappextra\scshape{#1}}\par}}
         \addvspace{\baselineskip}
         \noindent
         %\par
@@ -592,7 +592,7 @@
 }
 \def\@makeschapterhead#1{%
         %\vspace*{90pt}
-        \reset@font\centerline{\ii@chapterfont\textbf{\MakeUppercase{\@chapapp\xspace{}\@chapappextra#1}}}
+        \reset@font\centerline{\ii@chapterfont\textbf{\scshape{\@chapapp\xspace{}\@chapappextra#1}}}
         \addvspace{18pt}
 }
 \renewcommand{\appendix}[1][\appendixname]{
