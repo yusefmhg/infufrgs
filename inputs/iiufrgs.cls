@@ -92,12 +92,46 @@
 \RequirePackage{titlesec}
 \RequirePackage{fancyhdr}
 \RequirePackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\RequirePackage[tocindentauto,tocfullflat]{tocstyle}
-\settocfeature[toc][0]{entryhook}{\bfseries\uppercase}
-\settocfeature[toc][1]{entryhook}{\bfseries}
-\settocstylefeature{pagenumberbox}{\pnbox}
-\settocfeature[lof][1]{entryhook}{\figurename\hspace{0.2em}} % valor calculado no olho. Deveria ser um espaço de tamanho fixo, mas ~ tem tamanho variável
-\settocfeature[lot][1]{entryhook}{\tablename\hspace{0.2em}}
+%\RequirePackage[tocindentauto,tocfullflat]{tocstyle}
+%\settocfeature[toc][0]{entryhook}{\bfseries\uppercase}
+%\settocfeature[toc][1]{entryhook}{\bfseries}
+%\settocstylefeature{pagenumberbox}{\pnbox}
+%\settocfeature[lof][1]{entryhook}{\figurename\hspace{0.2em}} % valor calculado no olho. Deveria ser um espaço de tamanho fixo, mas ~ tem tamanho variável
+%\settocfeature[lot][1]{entryhook}{\tablename\hspace{0.2em}}
+
+\RequirePackage{tocbasic}
+
+\DeclareTOCStyleEntries[
+        pagenumberbox=\pnbox,
+        indent=0pt,
+        numwidth=0pt,
+        dynnumwidth
+]{tocline}{part,chapter,section,subsection,subsubsection,paragraph,subparagraph}
+
+\DeclareTOCStyleEntries[
+        entryformat=\scshape\bfseries,
+        beforeskip=.2pt,
+        linefill=\TOCLineLeaderFill
+]{tocline}{chapter}
+
+\DeclareTOCStyleEntries[
+        entryformat=\bfseries
+]{tocline}{section}
+
+\DeclareTOCStyleEntry[
+        indent=0pt,
+        entrynumberformat=\useprefix{\figurename},
+        dynnumwidth
+]{tocline}{figure}
+
+\DeclareTOCStyleEntry[
+        indent=0pt,
+        entrynumberformat=\useprefix{\tablename},
+        dynnumwidth
+]{tocline}{table}
+
+\newcommand*\useprefix[2]
+  {#1~#2}
 
 \RequirePackage[%
         bookmarksnumbered=true,
